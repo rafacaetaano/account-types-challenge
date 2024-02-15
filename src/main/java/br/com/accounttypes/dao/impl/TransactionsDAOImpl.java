@@ -45,6 +45,7 @@ public class TransactionsDAOImpl implements TransactionsDAO {
 		entity.setTransactionDate(new Date());
 		payer.setBalance(payer.getBalance() - request.getAmount());
 		payee.setBalance(payee.getBalance() + request.getAmount());
+		
 		transactionsRepository.save(entity);
 		return transactionsMapper.fromEntityToDTO(entity);
 	}
